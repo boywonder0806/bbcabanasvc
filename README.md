@@ -21,6 +21,20 @@ Ordering is Closed" with the next opening time instead.
 
 To change the hours, edit `ORDER_WINDOW` at the top of `assets/js/ordering.js`.
 
+## Cache busting
+
+GitHub Pages serves static files with a fixed `Cache-Control: max-age=600`
+that can't be changed via any repo/Pages setting. Because `index.html`,
+`style.css`, and `ordering.js` are separately cached, a browser can end up
+pairing a freshly fetched `index.html` with a stale cached CSS/JS file,
+producing a broken, mismatched render.
+
+`index.html` references the CSS/JS files with a `?v=N` query string
+(`assets/css/style.css?v=3`, `assets/js/ordering.js?v=3`). **Bump that
+version number any time you edit `style.css` or `ordering.js`** so browsers
+are forced to fetch the matching versions together instead of mixing old
+and new.
+
 The button links to the RocketRez ordering page set via the `data-order-url`
 attribute on `#order-widget` in `index.html`.
 
