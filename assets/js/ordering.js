@@ -68,3 +68,9 @@ document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible') renderOrderWidget();
 });
 window.addEventListener('pageshow', renderOrderWidget);
+// Chrome can prerender a page in the background before the address bar
+// navigation completes (e.g. typing a known domain), using whatever the
+// clock said at pre-render time. Re-check the instant it actually activates.
+if (document.prerendering) {
+  document.addEventListener('prerenderingchange', renderOrderWidget, { once: true });
+}
