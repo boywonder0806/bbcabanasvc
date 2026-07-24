@@ -37,27 +37,27 @@ function renderOrderWidget() {
   if (!widget) return;
 
   const orderUrl = widget.dataset.orderUrl;
-  const open = isOrderingOpen();
+  const now = new Date();
+  const minutes = getChicagoMinutesSinceMidnight(now);
+  const open = minutes >= ORDER_WINDOW.startMinutes && minutes < ORDER_WINDOW.endMinutes;
   const startLabel = formatWindowTime(ORDER_WINDOW.startMinutes);
   const endLabel = formatWindowTime(ORDER_WINDOW.endMinutes);
 
   if (open) {
     widget.innerHTML = `
-      <a class="order-button order-button--open" href="${orderUrl}" target="_blank" rel="noopener">
-        Order Online
-      </a>
-      <p class="order-status">Ordering open now &middot; closes at ${endLabel}</p>
+      <h1 class="status-title">Online Ordering is Open</h1>
+      <p class="status-subtext">Closes today at ${endLabel}</p>
+      <a class="order-button" href="${orderUrl}" target="_blank" rel="noopener">Order Online</a>
     `;
   } else {
+    const opensToday = minutes < ORDER_WINDOW.startMinutes;
     widget.innerHTML = `
-      <span class="order-button order-button--closed" aria-disabled="true">
-        Online Ordering Closed
-      </span>
-      <p class="order-status">Available daily ${startLabel} – ${endLabel}</p>
+      <h1 class="status-title">Online Ordering is Closed</h1>
+      <p class="status-subtext">Opens ${opensToday ? 'today' : 'tomorrow'} at ${startLabel}</p>
     `;
   }
 }
 
 renderOrderWidget();
-// Re-check periodically so the widget flips live at the open/close boundary.
+// Re-check periodically so the page flips live at the open/close boundary.
 setInterval(renderOrderWidget, 60 * 1000);

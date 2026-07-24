@@ -2,19 +2,22 @@
 
 Static site hosted on GitHub Pages, served at [bluebayoucabana.com](https://bluebayoucabana.com).
 
+A single full-screen status page: a blue background stating whether online
+ordering is open or closed, with an "Order Online" button when it's open.
+
 ## Structure
 
-- `index.html` — main page
+- `index.html` — the page (just the `#order-widget` status screen)
 - `assets/css/style.css` — styles
-- `assets/js/ordering.js` — time-gated online ordering widget
-- `assets/img/` — images (placeholder logo included)
+- `assets/js/ordering.js` — time-gated online ordering logic
 - `CNAME` — tells GitHub Pages to serve this repo at the custom domain
 
 ## Online ordering time gate
 
-`assets/js/ordering.js` shows an "Order Online" button only between **11:00 AM
-and 5:30 PM America/Chicago time** (handles CST/CDT automatically). Outside
-that window it shows a disabled "Online Ordering Closed" state instead.
+`assets/js/ordering.js` shows "Online Ordering is Open" with an "Order
+Online" button only between **11:00 AM and 5:30 PM America/Chicago time**
+(handles CST/CDT automatically). Outside that window it shows "Online
+Ordering is Closed" with the next opening time instead.
 
 To change the hours, edit `ORDER_WINDOW` at the top of `assets/js/ordering.js`.
 
