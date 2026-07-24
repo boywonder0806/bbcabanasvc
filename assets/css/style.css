@@ -1,0 +1,153 @@
+:root {
+  --color-bg: #0b2e33;
+  --color-bg-alt: #f4f1ea;
+  --color-accent: #e08e45;
+  --color-text: #1c1c1c;
+  --color-text-inverse: #ffffff;
+  --color-muted: #6b7280;
+  --radius: 10px;
+  --max-width: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg-alt);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.site-header {
+  background: var(--color-bg);
+  color: var(--color-text-inverse);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.logo {
+  height: 32px;
+  width: 32px;
+}
+
+.site-nav a {
+  color: var(--color-text-inverse);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.site-nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.hero {
+  background: var(--color-bg);
+  color: var(--color-text-inverse);
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.5rem;
+}
+
+.tagline {
+  margin: 0 0 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.order-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.order-button {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.order-button--open {
+  background: var(--color-accent);
+  color: #1c1c1c;
+}
+
+.order-button--open:hover {
+  filter: brightness(1.05);
+}
+
+.order-button--closed {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: not-allowed;
+}
+
+.order-status {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.section {
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.section h2 {
+  margin-top: 0;
+}
+
+.hours-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 480px;
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.site-footer {
+  background: var(--color-bg);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
