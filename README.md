@@ -18,9 +18,8 @@ that window it shows a disabled "Online Ordering Closed" state instead.
 
 To change the hours, edit `ORDER_WINDOW` at the top of `assets/js/ordering.js`.
 
-To point the button at your real RocketRez ordering link, replace
-`#ROCKETREZ_ORDER_URL#` in `index.html` (the `data-order-url` attribute on
-`#order-widget`) with your actual RocketRez URL.
+The button links to the RocketRez ordering page set via the `data-order-url`
+attribute on `#order-widget` in `index.html`.
 
 ## DNS setup for bluebayoucabana.com
 
