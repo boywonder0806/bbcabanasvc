@@ -61,3 +61,10 @@ function renderOrderWidget() {
 renderOrderWidget();
 // Re-check periodically so the page flips live at the open/close boundary.
 setInterval(renderOrderWidget, 60 * 1000);
+// Re-check immediately when the tab regains focus or is restored from the
+// back/forward cache — otherwise a tab left open since "open" hours can sit
+// on a stale render until its next 60s tick.
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') renderOrderWidget();
+});
+window.addEventListener('pageshow', renderOrderWidget);
