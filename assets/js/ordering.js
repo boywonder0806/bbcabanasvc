@@ -46,9 +46,9 @@ function renderOrderWidget() {
   if (open) {
     widget.innerHTML = `
       <h1 class="status-title">Online Ordering is Open</h1>
-      <p class="status-subtext">Closes today at ${endLabel}</p>
-      <a class="order-button" href="${orderUrl}" target="_blank" rel="noopener">Order Online</a>
+      <p class="status-subtext">Redirecting you to order&hellip;</p>
     `;
+    window.location.replace(orderUrl);
   } else {
     const opensToday = minutes < ORDER_WINDOW.startMinutes;
     widget.innerHTML = `

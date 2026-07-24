@@ -1,6 +1,5 @@
 :root {
   --color-bg: #0b3d5c;
-  --color-accent: #e08e45;
   --color-text-inverse: #ffffff;
 }
 
@@ -36,20 +35,4 @@ body {
   margin: 0;
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.8);
-}
-
-.order-button {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 1rem 2.5rem;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 1.15rem;
-  text-decoration: none;
-  background: var(--color-accent);
-  color: #1c1c1c;
-}
-
-.order-button:hover {
-  filter: brightness(1.05);
 }
